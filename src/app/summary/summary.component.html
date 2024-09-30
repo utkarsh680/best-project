@@ -1,0 +1,283 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<!-- Include the Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="summury-container">
+  <div class="navigator">
+    <ul>
+      <li>
+        <a href="#">
+          <i class="fas fa-home home-img"></i>
+          <!-- Home Icon Only -->
+        </a>
+      </li>
+      <li>
+        <i class="fas fa-greater-than" style="font-size: 0.7rem"></i>
+        <a style="color: grey" href="#">Cashflow Forecasting</a>
+      </li>
+      <li aria-current="page">
+        <i class="fas fa-greater-than" style="font-size: 0.7rem"></i>
+        <a style="color: grey" href="javascript:void(0)">Summary</a>
+      </li>
+    </ul>
+
+    <div class="cashflow-forecast-nav">
+      <div class="left">
+        <p>Cash Flow Forecast- Summary</p>
+      </div>
+      <div class="right">
+        <div class="actions">
+          <button title="Mail"><i class="fas fa-envelope"></i></button>
+          <button title="Download"><i class="fas fa-download"></i></button>
+          <button title="Refresh"><i class="fas fa-sync"></i></button>
+          <button title="Print"><i class="fas fa-print"></i></button>
+          <button title="Share"><i class="fas fa-share-alt"></i></button>
+          <button title="Copy">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-container">
+    <section class="section" id="cashflow">
+      <div class="image"></div>
+      <div class="image1"></div>
+      <div class="top-section">
+        <img class="nescafe-img" src="assets/img/nescafe.png" alt="" />
+        <div class="left">Nescafe</div>
+        <div class="right">
+          <div class="currency-selector">
+            <img
+              src="assets/img/download (1).png"
+              alt="Country Flag"
+              class="country-flag me-2"
+            />
+            <select style="color: black; font-weight: 600">
+              <option value="AED">AED</option>
+
+              <!-- Add more currencies as needed -->
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-section">
+        <div class="left">
+          <p class="id-value" style="color: black; font-weight: 600">1000344</p>
+          <p class="id-string">CIF ID</p>
+        </div>
+        <div class="right">
+          <p style="color: black; font-weight: 600">9</p>
+          <p class="id-string">Accounts</p>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="box1 box-data">
+        <div class="inner-box">
+          <span class="heading">Cashflow Overview</span>
+          <div class="bottom-box">
+            <span class="data">AED 10,60,000</span>
+            <span class="inner-heading">Total Cash inflow</span>
+            <div class="lower-text">
+              <img src="assets/green arrow.png" alt="" />
+              <p>1% v/s last year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box2 box-data">
+        <div class="inner-box">
+          <div class="bottom-box">
+            <span class="data">AED 10,60,000</span>
+            <span class="inner-heading">Total Cash inflow</span>
+            <div class="lower-text">
+              <img src="assets/red arrow.png" alt="" />
+              <p>1% v/s last year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box3 box-data">
+        <div class="inner-box">
+          <div class="bottom-box">
+            <span class="data">AED 10,60,000</span>
+            <span class="inner-heading">Total Cash inflow</span>
+            <div class="lower-text">
+              <img src="assets/green arrow.png" alt="" />
+              <p>1% v/s last year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box4 box-data">
+        <div class="inner-box">
+          <span class="heading-insight">Insights</span>
+          <div class="bottom-box">
+            <div
+              style="
+                height: auto;
+                width: 225px;
+                word-break: break-all;
+                text-align: start;
+              "
+            >
+              <div class="lower-text">
+                <img src="assets/green arrow.png" alt="" />
+                <p>
+                  AE611235566565656-AED Account Has High Cashflow for OCT 2021
+                </p>
+              </div>
+              <div class="lower-text">
+                <img src="assets/red arrow.png" alt="" />
+                <p>
+                  AE611235564564546-AED Account Has Low Cashflow for OCT 2021
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-chart-container">
+    <div class="fl-container">
+      <div class="fl-box1 box-data">
+        <div class="fl-inner-box">
+          <div class="fl-left-top">
+            <p class="heading">Forecast Period</p>
+            <div class="heading-bottom">
+              <span>Select Period</span>
+              <div>
+              <label for="start"></label>
+              <input type="date" id="start" [(ngModel)]="startDate" (change)="onStartChange()" required>
+              
+              <label for="end"></label>
+              <input type="date" id="end" [(ngModel)]="endDate" (change)="onEndChange()" required [min]="minEndDate" [max]="maxStartDate">
+            </div>
+            </div>
+          </div>
+          <div class="fl-left-bottom">
+            <p>Showing forecast for <span>6 months</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="fl-box2 box-data">
+        <div class="fl-inner-box">
+          <div class="fl-top">
+            <p>Cash Inflow Distribusion</p>
+          </div>
+          <div class="fl-bottom">
+            <div>
+              <canvas
+                id="donutChart1"
+                width="150"
+                height="150"
+                style="
+                  display: block;
+                  box-sizing: border-box;
+                  height: 88px;
+                  width: 300px !important;
+                  margin-left: -28px;
+                  padding: 0 3px;
+                "
+              ></canvas>
+              <!-- Smaller size for the doughnut chart -->
+              <!-- <div id="deliveryExceptionsChart"></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fl-box3">
+        <div class="fl-inner-box">
+          <div class="fl-top">
+            <p>Cash Inflow Distribusion</p>
+          </div>
+          <div class="fl-bottom">
+            <div>
+              <canvas
+                id="donutChart2"
+                width="150"
+                height="150"
+                style="
+                  display: block;
+                  box-sizing: border-box;
+                  height: 88px;
+                  width: 300px;
+                  padding: 0 3px;
+                  margin-left: -28px;
+                "
+              ></canvas>
+              <!-- Smaller size for the doughnut chart -->
+              <!-- <div id="deliveryExceptionsChart"></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fl-box4">
+        <div class="fl-inner-box">
+          <div class="fl-heading">
+            <p>Quick Action</p>
+          </div>
+          <div class="fl-links">
+            <a href="href">Book Forward Contract</a>
+            <a href="href">Start SIP</a>
+            <a href="href">Book Recurring Deposits</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="account-details">
+    <div class="account-row">
+      <p class="account-text">Account<span>(9)</span></p>
+      <div class="search-box">
+        <i class="fas fa-home home-img"></i>
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Enter Key to search"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="details-container">
+    <ul>
+      <ul>
+        <li *ngFor="let item of items; let i = index" class="details-list">
+          <div class="details-nav">
+            <div class="details-id">{{ item.id }}</div>
+            <div class="detail-id-balance">
+              <div class="id-value">{{ item.value }}</div>
+              <span class="border"></span>
+              <div class="opening-balance">
+                Opening Balance <span>{{ item.openingBalance }}</span>
+              </div>
+            </div>
+            <div class="closing-balance">
+              Closing balance <span>{{ item.closingBalance }}</span>
+            </div>
+            <div class="view-details" (click)="toggleDetails(i)">
+              <div class="view-details-text">View Details</div>
+              <mat-icon>{{ isDetailsVisible[i] ? 'expand_less' : 'expand_more' }}</mat-icon>
+            </div>
+          </div>
+      
+          <!-- The details section toggles visibility -->
+          <div class="show-details" *ngIf="isDetailsVisible[i]">
+            <p>Details content for {{ item.id }} goes here...</p>
+          </div>
+        </li>
+      </ul>
+      
+    </ul>
+  </div>
+</div>
